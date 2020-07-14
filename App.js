@@ -48,7 +48,7 @@ App = {
 
   assit2: function(){
       votingTemplate.find('.panel-title').text('Candidate 2');
-      votingTemplate.find('.voter-name').text(temp2temp2[2]);
+      votingTemplate.find('.voter-name').text(temp2[2]);
       votingTemplate.find('.Votes').text(temp2[3]);
       votingTemplate.find('.btn-vote').attr('id',1);
       $('#votersRow').append(votingTemplate.html());
@@ -67,16 +67,16 @@ App = {
       return temp.getNameAndVotes();
     }).then(function(temp2){
       console.log(temp2.toString());
-      App.assit1();
-      App.assit2();
-      App.assit3();
+      App.assit1(temp2);
+      App.assit2(temp2);
+      App.assit3(temp2);
     })
   },
 
   winCandidate: function(){
 
     App.contracts.Voting.deployed().then(function(instance){
-      return instance.getAllCandidatesWithVotes();
+      return instance.getNameAndVotes();
     }).then(function(candidateObject){
       console.log(candidateObject.toString());
       var winner = $('#winner');
