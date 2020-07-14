@@ -26,8 +26,8 @@ contract votingContract{
     //confirm the voters who can vote
 
     function grantToVoters(address _address) public {
-        require(msg.sender == theowner);
-        require(!voters[_address].ifVoted);
+        require(msg.sender == theowner,"not owner");
+        require(!voters[_address].ifVoted,"already voted");
         voters[_address] = Voters({weightOfVote : 1, ifVoted : false});
     }
 
