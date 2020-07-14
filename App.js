@@ -130,8 +130,8 @@ App = {
     });
   }
 
-$(function() {
-  $(window).load(function() {
-    App.inital();
+  $(function() {
+    $(window).load(function() {
+      App.inital();
+    });
   });
-});
