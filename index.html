@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Smart Voting</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+    }
+
+    .bg {
+      background-image: url("/js/back.jpeg");
+
+      height: 100%;
+    
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  
+  <div class="bg">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8 col-sm-push-2">
+        <h1 class="text-center">Smart Voting</h1>
+        <hr />
+        <br />
+      </div>
+    </div>
+    
+    <div class="form-authorize">
+      <label class="panel panel-success panel-pet" for="usr">ACCOUNT ADDRESS:</label>
+      <div id="accountId">0x0</div>
+      <input type="text" class="form-control" id="address">
+      <button type="button" class="btn btn-default" onclick="App.AuthorizeVoter(); return false;">Confirm</button>
+    
+    </div>
+    <br>
+
+    <label class="panel panel-success panel-pet">Candidate List:</label>
+    
+    <div id="votersRow" class="row">
+
+    </div>
+    
+    <label class="panel panel-success panel-pet">Current Winner:</label>
+
+    <div id="winnerCurrent">
+      
+    </div>
+
+  </div>
+    
+
+  <div id="votingTemplate" style="display: none;">
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="panel panel-success panel-pet">
+        <div class="panel-heading">
+          <h3 class="panel-title">First Candidate</h3>
+        </div>
+        <div class="panel-body">
+          <strong>Candidate</strong>: <span class="voter-name">Candidate Name</span><br />
+          <strong>Poll</strong>: <span class="Votes">3</span><br />
+          <button type="button" class="btn btn-default btn-vote"  onclick="App.Vote(this.id)">Poll</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="winner" style="display: none;">
+    <strong class = "winner-name">hope</strong>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/app.js"></script>
+</div>
+</body>
+
+</html>
