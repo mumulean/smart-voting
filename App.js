@@ -47,6 +47,7 @@ App = {
   },
 
   assit2: function(){
+      var votingTemplate = $('#votingTemplate');
       votingTemplate.find('.panel-title').text('Candidate 2');
       votingTemplate.find('.voter-name').text(temp2[2]);
       votingTemplate.find('.Votes').text(temp2[3]);
@@ -55,6 +56,7 @@ App = {
   }
 
   assist3: function(){
+      var votingTemplate = $('#votingTemplate');
       votingTemplate.find('.panel-title').text('Candidate 3');
       votingTemplate.find('.voter-name').text(temp2[4]);
       votingTemplate.find('.Votes').text(temp2[5]);
