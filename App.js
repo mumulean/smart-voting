@@ -53,7 +53,7 @@ App = {
       votingTemplate.find('.Votes').text(temp2[3]);
       votingTemplate.find('.btn-vote').attr('id',1);
       $('#votersRow').append(votingTemplate.html());
-  }
+  },
 
   assist3: function(temp2){
       var votingTemplate = $('#votingTemplate');
@@ -62,7 +62,7 @@ App = {
       votingTemplate.find('.Votes').text(temp2[5]);
       votingTemplate.find('.btn-vote').attr('id',2);
       $('#votersRow').append(votingTemplate.html());
-  }
+  },
 
   loadTheVoter: function(){
     App.votecontracts.Voting.deployed().then(function(temp){
@@ -86,7 +86,6 @@ App = {
       for(var i = 1; i <= 6 ;i++){
         if(candidateObject[i]>winnerIndex)
           winnerIndex = i;
-
       }
       winner.find('.winner-name').text(candidateObject[winnerIndex-1]);
       $('#winnerCurrent').append(winner.html());
@@ -116,9 +115,9 @@ App = {
     }
     if((_address == 0x0)){
       return false
-    }
+    },
     
-    App.votecontracts.Voting.deployed().then(function(temp){
+  App.votecontracts.Voting.deployed().then(function(temp){
       return temp.authorizationVoter(_address,{
         from: App.customer,
         gas: 1000000
@@ -128,7 +127,7 @@ App = {
     }).catch(function(err){
       console.error(err);
     });
-  }
+  },
 
   $(function() {
     $(window).load(function() {
