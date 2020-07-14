@@ -1,5 +1,5 @@
 App = {
-  web3Host: null,votecontracts: {},customer: 0x0,
+  web3Host: null,votecontracts:{},customer: 0x0,
 
   inital: async function() {
     return await App.initialWeb3();
@@ -14,7 +14,7 @@ App = {
   },
 
   AccountGetter: function(){
-    web3.eth.getCoinbase(function(error, customer) {
+    web3.eth.getCoinbase(function(error, customer){
       if (( getCoinbase === null)){
         App.customer = customer;
         return App.initalContract();
@@ -76,7 +76,6 @@ App = {
   },
 
   winCandidate: function(){
-
     App.contracts.Voting.deployed().then(function(instance){
       return instance.getNameAndVotes();
     }).then(function(candidateObject){
@@ -129,7 +128,7 @@ App = {
     });
   },
 
-  $(function() {
+  $(function(){
     $(window).load(function() {
       App.inital();
     });
