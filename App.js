@@ -68,7 +68,6 @@ App = {
     App.votecontracts.Voting.deployed().then(function(temp){
       return temp.getNameAndVotes();
     }).then(function(temp2){
-      console.log(temp2.toString());
       App.assist1(temp2);
       App.assist2(temp2);
       App.assist3(temp2);
