@@ -26,7 +26,8 @@ contract votingContract{
     //confirm the voters who can vote
 
     function grantToVoters(address _address) public {
-        require(msg.sender == theowner && !voters[_address].ifVoted);
+        require(msg.sender == theowner);
+        require(!voters[_address].ifVoted);
         voters[_address] = Voters({weightOfVote : 1, ifVoted : false});
     }
 
@@ -50,5 +51,6 @@ contract votingContract{
     //function getVotes(uint _index) public view returns(uint){
         //return candidatesArr[_index].numberOfVote;
     //}
+
 
 }

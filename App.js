@@ -17,10 +17,9 @@ App = {
     web3.eth.getCoinbase(function(error, customer){
       if (( getCoinbase === null)){
         App.customer = customer;
-        return App.initalContract();
+        $('#accountId').text(customer);
       }
       return App.initalContract();
-      }
     });
   },
 
@@ -30,8 +29,7 @@ App = {
       ethereum.enable()
 
     } else {
-      var hostAddress= $('#votingTemplate');
-      App.web3Host = new Web3.providers.HttpProvider(hostAddress);
+      App.web3Host = new Web3.providers.HttpProvider('http://localhost:7545');
       ethereum.enable()
     }
     return App.AccountGetter();
@@ -94,8 +92,8 @@ App = {
   Voting: function(_index){
     App.votecontracts.Voting.deployed().then(function(temp){
       return temp.votersPoll(_index,{
-        gas: 1000000
         from: App.customer,
+        gas: 1000000
       });
 
     }).then(function(result){
@@ -105,7 +103,7 @@ App = {
     });
   },
 
-  authorizationVoter: function(){
+  grantToVoters: function(){
     var _address =$('#address').val();
 
     if((_address.trim() == '')){
@@ -113,10 +111,9 @@ App = {
     }
     if((_address == 0x0)){
       return false
-    },
-    
-  App.votecontracts.Voting.deployed().then(function(temp){
-      return temp.authorizationVoter(_address,{
+    }
+    App.votecontracts.Voting.deployed().then(function(temp){
+      return temp.grantToVoters(_address,{
         from: App.customer,
         gas: 1000000
       });
@@ -125,10 +122,12 @@ App = {
     }).catch(function(err){
       console.error(err);
     });
-  },
+  }
 
-  $(function(){
-    $(window).load(function() {
-      App.inital();
-    });
+};
+
+$(function(){
+  $(window).load(function() {
+    App.inital();
   });
+});
