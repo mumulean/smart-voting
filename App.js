@@ -37,7 +37,7 @@ App = {
     return App.AccountGetter();
   },
 
-  assit1: function(){
+  assist1: function(temp2){
       var votingTemplate = $('#votingTemplate');
       votingTemplate.find('.panel-title').text('Candidate 1');
       votingTemplate.find('.voter-name').text(temp2[0]);
@@ -46,7 +46,7 @@ App = {
       $('#votersRow').append(votingTemplate.html());
   },
 
-  assit2: function(){
+  assist2: function(temp2){
       var votingTemplate = $('#votingTemplate');
       votingTemplate.find('.panel-title').text('Candidate 2');
       votingTemplate.find('.voter-name').text(temp2[2]);
@@ -55,7 +55,7 @@ App = {
       $('#votersRow').append(votingTemplate.html());
   }
 
-  assist3: function(){
+  assist3: function(temp2){
       var votingTemplate = $('#votingTemplate');
       votingTemplate.find('.panel-title').text('Candidate 3');
       votingTemplate.find('.voter-name').text(temp2[4]);
@@ -69,9 +69,9 @@ App = {
       return temp.getNameAndVotes();
     }).then(function(temp2){
       console.log(temp2.toString());
-      App.assit1(temp2);
-      App.assit2(temp2);
-      App.assit3(temp2);
+      App.assist1(temp2);
+      App.assist2(temp2);
+      App.assist3(temp2);
     })
   },
 
